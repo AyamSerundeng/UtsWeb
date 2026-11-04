@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pemesanan Buku - Toko Buku Pustaka</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <header class="navbar">
+            <div class="container navbar-content">
+            <a href="dashboard.html" class="brand">
+                <img src="assets/logo.png" alt="Logo Toko Buku" class="brand-logo" onerror="this.style.display='none'">
+                <span>Toko Buku Pustaka</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="stok.html" class="nav-link">Katalog Buku</a>
+                <a href="checkout.html" class="nav-link active">Pemesanan</a>
+                <a href="tracking.html" class="nav-link">Tracking</a>
+                <button type="button" class="btn btn-outline" id="btn-logout">Logout</button>
+            </nav>
+            </div>
+        </header>
+
+        <main class="container main-content">
+            <div class="page-header">
+            <h1>Pemesanan & Keranjang Belanja</h1>
+            <p>Pilih buku dari daftar di bawah untuk ditambahkan ke keranjang belanja Anda.</p>
+            </div>
+
+            <!-- Tampilan Kartu Katalog Buku Tersedia -->
+            <section class="checkout-books-section">
+            <h2>Pilih Buku</h2>
+            <div id="checkout-books-grid" class="dashboard-grid">
+                <!-- Kartu buku dirender dinamis lewat JS lengkap dengan gambar cover & tombol tambah -->
+            </div>
+            </section>
+
+            <div class="checkout-grid" style="margin-top: 2rem;">
+            <!-- Tabel Keranjang Belanja -->
+            <section class="checkout-items">
+                <h2>Keranjang Belanja</h2>
+                <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                    <tr>
+                        <th>Cover</th>
+                        <th>Judul Buku</th>
+                        <th>Harga</th>
+                        <th>Jumlah</th>
+                        <th>Subtotal</th>
+                        <th>Aksi</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbl-cart-body">
+                    <!-- Item pesanan dirender via JS -->
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-right"><strong>Total Pembayaran:</strong></td>
+                        <td colspan="2"><strong id="cart-total-price">Rp 0</strong></td>
+                    </tr>
+                    </tfoot>
+                </table>
+                </div>
+            </section>
+
+            <!-- Formulir Pemesan & Pembayaran -->
+            <section class="checkout-form-container">
+                <h2>Data Pemesan & Pembayaran</h2>
+                <form id="form-checkout">
+                <div class="form-group">
+                    <label for="cust-nama">Nama Pemesan</label>
+                    <input type="text" id="cust-nama" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div class="form-group">
+                    <label for="cust-email">Alamat Email</label>
+                    <input type="email" id="cust-email" placeholder="nama@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="cust-telepon">Nomor Telepon / WA</label>
+                    <input type="tel" id="cust-telepon" placeholder="081234567890" required>
+                </div>
+                <div class="form-group">
+                    <label for="cust-alamat">Alamat Lengkap Pengiriman</label>
+                    <textarea id="cust-alamat" rows="3" placeholder="Jalan, No. Rumah, Kecamatan, Kota" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cust-pembayaran">Metode Pembayaran</label>
+                    <select id="cust-pembayaran" required>
+                    <option value="">Pilih Metode Pembayaran</option>
+                    <option value="Transfer Bank BCA">Transfer Bank BCA</option>
+                    <option value="Transfer Bank Mandiri">Transfer Bank Mandiri</option>
+                    <option value="E-Wallet (QRIS)">E-Wallet (QRIS)</option>
+                    <option value="COD (Bayar di Tempat)">COD (Bayar di Tempat)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Proses Pemesanan</button>
+                </form>
+            </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+            <p>&copy; 2026 Toko Buku Pustaka. Tugas UTS Pemrograman Web 1.</p>
+            </div>
+        </footer>
+
+        <script src="js/data.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard - Toko Buku Pustaka</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <header class="navbar">
+            <div class="container navbar-content">
+            <a href="dashboard.html" class="brand">
+                <img src="assets/logo.png" alt="Logo Toko Buku" class="brand-logo" onerror="this.style.display='none'">
+                <span>Toko Buku Pustaka</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="stok.html" class="nav-link">Katalog Buku</a>
+                <a href="checkout.html" class="nav-link">Pemesanan</a>
+                <a href="tracking.html" class="nav-link">Tracking</a>
+                <button type="button" class="btn btn-outline" id="btn-logout">Logout</button>
+            </nav>
+            </div>
+        </header>
+
+        <main class="container main-content">
+            <section class="welcome-section">
+            <h1 id="greeting-text">Selamat Datang</h1>
+            <p>Pilih menu navigasi di bawah untuk mengelola persediaan dan transaksi toko.</p>
+            </section>
+
+            <section class="dashboard-grid">
+            <article class="dash-card">
+                <div class="card-body">
+                <h2>Informasi Stok & Katalog</h2>
+                <p>Lihat daftar buku yang tersedia dan tambahkan baris stok baru secara langsung.</p>
+                </div>
+                <div class="card-footer">
+                <a href="stok.html" class="btn btn-primary">Buka Katalog</a>
+                </div>
+            </article>
+
+            <article class="dash-card">
+                <div class="card-body">
+                <h2>Tracking Pengiriman</h2>
+                <p>Cek status pengiriman pesanan pembeli berdasarkan Nomor Delivery Order.</p>
+                </div>
+                <div class="card-footer">
+                <a href="tracking.html" class="btn btn-primary">Cek Pengiriman</a>
+                </div>
+            </article>
+
+            <article class="dash-card">
+                <div class="card-body">
+                <h2>Laporan Pemesanan</h2>
+                <p>Rekapitulasi pesanan buku yang masuk dan status proses transaksi harian.</p>
+                </div>
+                <div class="card-footer">
+                <a href="checkout.html" class="btn btn-primary">Kelola Pemesanan</a>
+                </div>
+            </article>
+
+            <article class="dash-card">
+                <div class="card-body">
+                <h2>Riwayat Transaksi</h2>
+                <p>Catatan riwayat transaksi pembelian dan pengiriman buku yang sudah selesai.</p>
+                </div>
+                <div class="card-footer">
+                <button type="button" class="btn btn-secondary" id="btn-toggle-riwayat">Lihat Riwayat</button>
+                </div>
+            </article>
+            </section>
+
+            <section id="riwayat-section" class="data-section" style="display: none;">
+            <h2>Riwayat Transaksi Terbaru</h2>
+            <div class="table-container">
+                <table class="data-table">
+                <thead>
+                    <tr>
+                    <th>ID Transaksi</th>
+                    <th>Tanggal</th>
+                    <th>Pembeli</th>
+                    <th>Total Pembayaran</th>
+                    <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tbl-riwayat-body">
+                </tbody>
+                </table>
+            </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+            <p>&copy; 2026 Toko Buku Pustaka. Tugas UTS Pemrograman Web 1.</p>
+            </div>
+        </footer>
+
+        <script src="js/data.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

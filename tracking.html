@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tracking Pengiriman - Toko Buku Pustaka</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <header class="navbar">
+            <div class="container navbar-content">
+            <a href="dashboard.html" class="brand">
+                <img src="assets/logo.png" alt="Logo Toko Buku" class="brand-logo" onerror="this.style.display='none'">
+                <span>Toko Buku Pustaka</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="stok.html" class="nav-link">Katalog Buku</a>
+                <a href="checkout.html" class="nav-link">Pemesanan</a>
+                <a href="tracking.html" class="nav-link active">Tracking</a>
+                <button type="button" class="btn btn-outline" id="btn-logout">Logout</button>
+            </nav>
+            </div>
+        </header>
+
+        <main class="container main-content">
+            <div class="page-header">
+            <h1>Pelacakan Pengiriman</h1>
+            <p>Masukkan Nomor Delivery Order (DO) untuk melihat status pengiriman terkini.</p>
+            </div>
+
+            <section class="tracking-search-box">
+            <form id="form-tracking" class="form-inline">
+                <div class="form-group flex-grow">
+                <label for="no-do" class="sr-only">Nomor Delivery Order</label>
+                <input type="text" id="no-do" placeholder="Contoh: DO-2026001" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Cari Pengiriman</button>
+            </form>
+            </section>
+
+            <section id="tracking-result" class="tracking-result-card" style="display: none;">
+            <div class="result-header">
+                <div>
+                <span class="label-sub">Nomor DO:</span>
+                <h2 id="track-do-num">DO-2026001</h2>
+                </div>
+                <div class="status-badge" id="track-status-badge">Dalam Perjalanan</div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 66%;"></div>
+                </div>
+                <div class="progress-steps">
+                <div class="step step-done" id="step-1">1. Diproses</div>
+                <div class="step step-done" id="step-2">2. Dikirim</div>
+                <div class="step" id="step-3">3. Selesai</div>
+                </div>
+            </div>
+
+            <div class="detail-grid">
+                <div class="detail-item">
+                <span class="detail-label">Nama Pemesan</span>
+                <span class="detail-value" id="track-nama">-</span>
+                </div>
+                <div class="detail-item">
+                <span class="detail-label">Ekspedisi</span>
+                <span class="detail-value" id="track-ekspedisi">-</span>
+                </div>
+                <div class="detail-item">
+                <span class="detail-label">Tanggal Kirim</span>
+                <span class="detail-value" id="track-tanggal">-</span>
+                </div>
+                <div class="detail-item">
+                <span class="detail-label">Jenis Paket</span>
+                <span class="detail-value" id="track-paket">-</span>
+                </div>
+                <div class="detail-item">
+                <span class="detail-label">Total Pembayaran</span>
+                <span class="detail-value" id="track-total">-</span>
+                </div>
+                <div class="detail-item">
+                <span class="detail-label">Alamat Tujuan</span>
+                <span class="detail-value" id="track-alamat">-</span>
+                </div>
+            </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+            <p>&copy; 2026 Toko Buku Pustaka. Tugas UTS Pemrograman Web 1.</p>
+            </div>
+        </footer>
+
+        <script src="js/data.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

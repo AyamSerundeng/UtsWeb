@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Katalog Buku - Toko Buku Pustaka</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <header class="navbar">
+            <div class="container navbar-content">
+            <a href="dashboard.html" class="brand">
+                <img src="assets/logo.png" alt="Logo Toko Buku" class="brand-logo" onerror="this.style.display='none'">
+                <span>Toko Buku Pustaka</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="stok.html" class="nav-link active">Katalog Buku</a>
+                <a href="checkout.html" class="nav-link">Pemesanan</a>
+                <a href="tracking.html" class="nav-link">Tracking</a>
+                <button type="button" class="btn btn-outline" id="btn-logout">Logout</button>
+            </nav>
+            </div>
+        </header>
+
+        <main class="container main-content">
+            <div class="page-header">
+            <h1>Informasi Stok & Katalog Buku</h1>
+            <p>Data diambil secara dinamis dari Array JSON pada file data.js.</p>
+            </div>
+
+            <section class="stok-layout">
+            <div class="stok-main">
+                <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                    <tr>
+                        <th>Cover</th>
+                        <th>Kode</th>
+                        <th>Judul Buku</th>
+                        <th>Kategori</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th>Aksi</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tabel-katalog-body">
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <aside class="stok-sidebar">
+                <div class="card-form">
+                <h2>Tambah Stok Buku</h2>
+                <form id="form-tambah-buku">
+                    <div class="form-group">
+                    <label for="buku-kode">Kode Buku</label>
+                    <input type="text" id="buku-kode" placeholder="BK001" required>
+                    </div>
+                    <div class="form-group">
+                    <label for="buku-judul">Judul Buku</label>
+                    <input type="text" id="buku-judul" placeholder="Masukkan judul buku" required>
+                    </div>
+                    <div class="form-group">
+                    <label for="buku-kategori">Kategori</label>
+                    <select id="buku-kategori" required>
+                        <option value="">Pilih Kategori</option>
+                        <option value="Fiksi">Fiksi</option>
+                        <option value="Non-Fiksi">Non-Fiksi</option>
+                        <option value="Teknologi">Teknologi</option>
+                        <option value="Pendidikan">Pendidikan</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="buku-harga">Harga (Rp)</label>
+                    <input type="number" id="buku-harga" min="0" placeholder="75000" required>
+                    </div>
+                    <div class="form-group">
+                    <label for="buku-stok">Jumlah Stok</label>
+                    <input type="number" id="buku-stok" min="1" placeholder="10" required>
+                    </div>
+                    <div class="form-group">
+                    <label for="buku-gambar">Nama File Gambar</label>
+                    <input type="text" id="buku-gambar" placeholder="buku1.png" value="buku1.png" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Tambah ke Katalog</button>
+                </form>
+                </div>
+            </aside>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+            <p>&copy; 2026 Toko Buku Pustaka. Tugas UTS Pemrograman Web 1.</p>
+            </div>
+        </footer>
+
+        <script src="js/data.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

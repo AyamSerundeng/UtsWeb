@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Toko Buku - Login</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="auth-body">
+
+        <main class="auth-container">
+            <div class="auth-card">
+            <div class="brand-header">
+                <img src="assets/logo.png" alt="Logo Toko Buku" class="brand-logo" onerror="this.style.display='none'">
+                <h1>Toko Buku Pustaka</h1>
+                <p>Silakan masuk ke akun Anda</p>
+            </div>
+
+            <form id="login-form" class="auth-form" novalidate>
+                <div class="form-group">
+                <label for="email">Alamat Email</label>
+                <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+                </div>
+
+                <div class="form-group">
+                <label for="password">Kata Sandi</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">Login</button>
+            </form>
+
+            <div class="auth-actions">
+                <button type="button" class="btn-link" id="btn-lupa-password">Lupa Password?</button>
+                <button type="button" class="btn-link" id="btn-daftar">Belum punya akun? Daftar</button>
+            </div>
+            </div>
+        </main>
+
+        <dialog id="modal-lupa-password" class="modal">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h2>Lupa Password</h2>
+                <button type="button" class="btn-close" id="close-lupa-password">&times;</button>
+            </div>
+            <form id="form-lupa-password">
+                <p>Masukkan email yang terdaftar untuk menerima petunjuk pemulihan kata sandi.</p>
+                <div class="form-group">
+                <label for="reset-email">Email Terdaftar</label>
+                <input type="email" id="reset-email" placeholder="nama@email.com" required>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancel-lupa-password">Batal</button>
+                <button type="submit" class="btn btn-primary">Kirim Instruksi</button>
+                </div>
+            </form>
+            </div>
+        </dialog>
+
+        <dialog id="modal-daftar" class="modal">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h2>Daftar Akun Baru</h2>
+                <button type="button" class="btn-close" id="close-daftar">&times;</button>
+            </div>
+            <form id="form-daftar">
+                <div class="form-group">
+                <label for="reg-nama">Nama Lengkap</label>
+                <input type="text" id="reg-nama" placeholder="Nama Anda" required>
+                </div>
+                <div class="form-group">
+                <label for="reg-email">Alamat Email</label>
+                <input type="email" id="reg-email" placeholder="nama@email.com" required>
+                </div>
+                <div class="form-group">
+                <label for="reg-password">Kata Sandi</label>
+                <input type="password" id="reg-password" placeholder="Minimal 6 karakter" required>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancel-daftar">Batal</button>
+                <button type="submit" class="btn btn-primary">Daftar Sekarang</button>
+                </div>
+            </form>
+            </div>
+        </dialog>
+
+        <script src="js/data.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
