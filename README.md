@@ -122,7 +122,7 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 07 - Katalog Buku Dinamis](screenshots/07-katalog-buku-dinamis.png)
+<img width="1365" height="901" alt="image" src="https://github.com/user-attachments/assets/0f0d0ede-350e-478c-aa72-90c9289e132b" />
 
 ---
 
@@ -136,7 +136,19 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 08 - Tambah Stok Baru](screenshots/08-tambah-stok-baru.png)
+- mengubah stok
+<img width="948" height="160" alt="image" src="https://github.com/user-attachments/assets/5cc9f051-9488-48f2-ae07-269e56ee6081" />
+
+<img width="584" height="217" alt="image" src="https://github.com/user-attachments/assets/599dda76-b1b7-4db3-b2c5-006d75fb5ff9" />
+
+- tambah buku baru
+
+<img width="442" height="783" alt="image" src="https://github.com/user-attachments/assets/cbb32ee9-e4cd-43a0-9f33-1a1f6849fc2b" />
+
+<img width="572" height="182" alt="image" src="https://github.com/user-attachments/assets/05c37781-e841-434d-9875-9c18f87572ef" />
+
+<img width="957" height="135" alt="image" src="https://github.com/user-attachments/assets/387f33a6-947c-41ab-9d27-016c4afc2345" />
+
 
 ---
 
@@ -150,7 +162,12 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 09 - Hapus Stok Buku](screenshots/09-hapus-stok-buku.png)
+<img width="957" height="135" alt="image" src="https://github.com/user-attachments/assets/bc2bb001-affc-4fa8-93d6-8f3fd103ce3b" />
+
+<img width="586" height="188" alt="image" src="https://github.com/user-attachments/assets/46029123-280a-41c8-bdce-68c5e702d9b3" />
+
+<img width="943" height="843" alt="image" src="https://github.com/user-attachments/assets/37be5ab3-ddbe-4872-894a-ea418def6747" />
+
 
 ---
 
@@ -178,7 +195,10 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 11 - Kelola Keranjang Belanja](screenshots/11-kelola-keranjang.png)
+<img width="860" height="767" alt="image" src="https://github.com/user-attachments/assets/534248e3-2b20-48a1-b013-259fd2b7e090" />
+
+<img width="831" height="741" alt="image" src="https://github.com/user-attachments/assets/98051782-8900-4267-91bb-07c226d7df71" />
+
 
 ---
 
@@ -192,7 +212,10 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 12 - Pemesanan Berhasil](screenshots/12-pemesanan-berhasil.png)
+<img width="1378" height="747" alt="image" src="https://github.com/user-attachments/assets/5adee24b-b6b8-41b8-9b4c-7004f6cb2970" />
+
+<img width="575" height="211" alt="image" src="https://github.com/user-attachments/assets/b2939002-58c0-4a1c-9ab7-a9e56e792354" />
+
 
 ---
 
@@ -207,6 +230,7 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 13 - Tracking Pengiriman](screenshots/13-tracking-pengiriman.png)
+
+
 
 ---
