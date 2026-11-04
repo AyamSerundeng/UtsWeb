@@ -1,8 +1,10 @@
 # Tugas UTS Pemrograman Web - Toko Buku Pustaka Online
 
+---
+
 **Nama:** Khairi Ramadhan Yudhatama (312510099)  
-**Kelas:** Pemrograman Web (I251A)  
-**Dosen:** Agung Nugroho, S.Kom., M.Kom.
+**Kelas:** I251A
+**Dosen:** Agung Nugroho, S.Kom., M.Kom
 **Mata Kuliah:** Pemrograman Web
 **Proyek:** Aplikasi Web Pemesanan Buku Front-End (HTML, CSS, JavaScript DOM & JSON)
 
@@ -22,7 +24,10 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 01 - Login Berhasil](screenshots/01-login-berhasil.png)
+<img width="485" height="567" alt="image" src="https://github.com/user-attachments/assets/72e7ff1e-b0d3-4123-809c-7ea5dba51dfa" />
+
+<img width="1918" height="800" alt="image" src="https://github.com/user-attachments/assets/ac2ab666-4241-4640-8f66-368136b45a4d" />
+
 
 ---
 
@@ -36,7 +41,9 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 02 - Login Gagal Alert](screenshots/02-login-gagal-alert.png)
+<img width="505" height="558" alt="image" src="https://github.com/user-attachments/assets/1c35259d-f95c-4f66-af8d-d6d691236998" />
+
+<img width="673" height="875" alt="image" src="https://github.com/user-attachments/assets/1cc2d130-bc51-4746-8d9b-8f96ea130c46" />
 
 ---
 
@@ -50,7 +57,10 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 03 - Modal Lupa Password](screenshots/03-modal-lupa-password.png)
+<img width="647" height="372" alt="image" src="https://github.com/user-attachments/assets/9d429d12-4250-4217-830b-3798601419e5" />
+
+<img width="605" height="238" alt="image" src="https://github.com/user-attachments/assets/e4dc69c9-b80a-48d0-bed8-bf9c4440c6ae" />
+
 
 ---
 
@@ -65,7 +75,11 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 04 - Modal Daftar Akun](screenshots/04-modal-daftar-akun.png)
+<img width="615" height="466" alt="image" src="https://github.com/user-attachments/assets/9b39a705-575f-4fff-94d3-9ab48f12196c" />
+
+<img width="583" height="201" alt="image" src="https://github.com/user-attachments/assets/9cce4e65-a3fe-442e-a65f-4f612e15cd1b" />
+
+<img width="487" height="553" alt="image" src="https://github.com/user-attachments/assets/0bfc87c8-8236-4dd6-9b04-92950b24e1c5" />
 
 ---
 
@@ -79,7 +93,7 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 05 - Dashboard Greeting](screenshots/05-dashboard-greeting.png)
+<img width="1383" height="592" alt="image" src="https://github.com/user-attachments/assets/5d120598-6a42-4ae1-85dd-01af8f41e1c1" />
 
 ---
 
@@ -93,7 +107,8 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 06 - Riwayat Transaksi](screenshots/06-riwayat-transaksi.png)
+<img width="1386" height="671" alt="image" src="https://github.com/user-attachments/assets/05592689-6bdc-4367-ab35-cddf06539883" />
+
 
 ---
 
