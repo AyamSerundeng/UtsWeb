@@ -686,3 +686,58 @@ dialog.modal::backdrop {
   font-weight: 700;
   color: var(--primary-color);
 }
+
+/* Grid Layout Stok & Katalog */
+.stok-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.stok-main {
+  min-width: 0; /* Mencegah elemen grid meluap keluar layar */
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.data-table td {
+  vertical-align: middle;
+  padding: 0.6rem 0.5rem;
+}
+
+.action-btns {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.input-stok-val {
+  width: 65px;
+  padding: 0.3rem 0.3rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+}
+
+input[type="file"] {
+  padding: 0.4rem 0.5rem;
+  font-size: 0.85rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  cursor: pointer;
+}

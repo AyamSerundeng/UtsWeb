@@ -8,10 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
   initLogout();
 });
 
+// Auto-fix jika data di LocalStorage rusak atau bernilai undefined
 function initStorage() {
-  if (!localStorage.getItem("dataKatalogBuku")) {
+  const storedKatalog = localStorage.getItem("dataKatalogBuku");
+  if (!storedKatalog) {
     localStorage.setItem("dataKatalogBuku", JSON.stringify(dataKatalogBuku));
+  } else {
+    try {
+      const parsed = JSON.parse(storedKatalog);
+      const isInvalid = parsed.some(
+        (item) => item.stok === undefined || item.stok === null || isNaN(item.stok)
+      );
+      if (isInvalid) {
+        localStorage.setItem("dataKatalogBuku", JSON.stringify(dataKatalogBuku));
+      }
+    } catch (e) {
+      localStorage.setItem("dataKatalogBuku", JSON.stringify(dataKatalogBuku));
+    }
   }
+
   if (!localStorage.getItem("dataTracking")) {
     localStorage.setItem("dataTracking", JSON.stringify(dataTracking));
   }
@@ -166,7 +181,7 @@ function renderRiwayatTransaksi(targetEl) {
   });
 }
 
-// Fitur Katalog & Tambah Stok DOM (stok.html)
+// Fitur Katalog & Modifikasi Stok / Tambah Buku (stok.html)
 function initKatalogStok() {
   const tbodyKatalog = document.getElementById("tabel-katalog-body");
   const formTambahBuku = document.getElementById("form-tambah-buku");
@@ -184,29 +199,39 @@ function initKatalogStok() {
       const kategori = document.getElementById("buku-kategori").value;
       const hargaNum = parseInt(document.getElementById("buku-harga").value, 10);
       const stokNum = parseInt(document.getElementById("buku-stok").value, 10);
-      const gambarInput = document.getElementById("buku-gambar").value.trim();
+      const fileInput = document.getElementById("buku-gambar-file");
 
       const hargaFormatted = `Rp ${hargaNum.toLocaleString("id-ID")}`;
-      const pathCover = gambarInput.startsWith("img/") ? gambarInput : `img/${gambarInput}`;
 
-      const newBuku = {
-        kodeBarang: kode,
-        namaBarang: judul,
-        jenisBarang: kategori,
-        edisi: "1",
-        stok: stokNum,
-        harga: hargaFormatted,
-        cover: pathCover,
+      const processAddBuku = (coverSrc) => {
+        const newBuku = {
+          kodeBarang: kode,
+          namaBarang: judul,
+          jenisBarang: kategori,
+          edisi: "1",
+          stok: stokNum,
+          harga: hargaFormatted,
+          cover: coverSrc,
+        };
+
+        const currentKatalog = getKatalogData();
+        currentKatalog.push(newBuku);
+        saveKatalogData(currentKatalog);
+
+        tambahBarisKatalogDOM(tbodyKatalog, newBuku);
+        alert(`Buku baru "${judul}" berhasil didaftarkan ke katalog.`);
+        formTambahBuku.reset();
       };
 
-      const currentKatalog = getKatalogData();
-      currentKatalog.push(newBuku);
-      saveKatalogData(currentKatalog);
-
-      tambahBarisKatalogDOM(tbodyKatalog, newBuku);
-
-      alert(`Buku "${judul}" berhasil ditambahkan ke katalog.`);
-      formTambahBuku.reset();
+      if (fileInput && fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (evt) {
+          processAddBuku(evt.target.result);
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      } else {
+        processAddBuku("img/kepemimpinan.jpg");
+      }
     });
   }
 }
@@ -220,6 +245,9 @@ function renderKatalogTabel(targetEl) {
 }
 
 function tambahBarisKatalogDOM(targetEl, buku) {
+  // Nilai stok diambil dengan fallback aman jika bernilai null/undefined
+  const nilaiStok = (buku.stok !== undefined && buku.stok !== null && !isNaN(buku.stok)) ? buku.stok : 0;
+
   const tr = document.createElement("tr");
   tr.innerHTML = `
     <td><img src="${buku.cover}" alt="${buku.namaBarang}" class="img-thumbnail" onerror="this.src='https://via.placeholder.com/40x50?text=Buku'"></td>
@@ -227,12 +255,40 @@ function tambahBarisKatalogDOM(targetEl, buku) {
     <td>${buku.namaBarang}</td>
     <td>${buku.jenisBarang}</td>
     <td>${buku.harga}</td>
-    <td>${buku.stok}</td>
     <td>
-      <button type="button" class="btn btn-danger btn-sm btn-hapus-stok">Hapus</button>
+      <input type="number" min="0" value="${nilaiStok}" class="input-stok-val">
+    </td>
+    <td>
+      <div class="action-btns">
+        <button type="button" class="btn btn-secondary btn-sm btn-update-stok">Simpan Stok</button>
+        <button type="button" class="btn btn-danger btn-sm btn-hapus-stok">Hapus</button>
+      </div>
     </td>
   `;
 
+  const inputStok = tr.querySelector(".input-stok-val");
+  const btnUpdateStok = tr.querySelector(".btn-update-stok");
+
+  // Simpan perubahan jumlah stok
+  btnUpdateStok.addEventListener("click", () => {
+    const newStokVal = parseInt(inputStok.value, 10);
+    if (isNaN(newStokVal) || newStokVal < 0) {
+      alert("Jumlah stok harus angka positif.");
+      return;
+    }
+
+    let currentKatalog = getKatalogData();
+    const itemTarget = currentKatalog.find((b) => b.kodeBarang === buku.kodeBarang);
+
+    if (itemTarget) {
+      itemTarget.stok = newStokVal;
+      buku.stok = newStokVal;
+      saveKatalogData(currentKatalog);
+      alert(`Stok buku "${buku.namaBarang}" berhasil diperbarui menjadi ${newStokVal}.`);
+    }
+  });
+
+  // Hapus buku dari katalog
   tr.querySelector(".btn-hapus-stok").addEventListener("click", () => {
     if (confirm(`Hapus ${buku.namaBarang} dari katalog?`)) {
       let currentKatalog = getKatalogData();
@@ -299,7 +355,6 @@ function initCheckout() {
   }
 }
 
-// Render Pilihan Kartu Buku dengan Gambar dan Tombol "Tambah ke Keranjang"
 function renderCheckoutBooks(gridEl, tblCartBody) {
   gridEl.innerHTML = "";
   const katalog = getKatalogData();
@@ -368,7 +423,6 @@ function renderCart(targetEl) {
       </td>
     `;
 
-    // Event ubah jumlah kuantitas langsung dari tabel
     tr.querySelector(".input-qty-cart").addEventListener("change", (e) => {
       const newQty = parseInt(e.target.value, 10);
       if (newQty > 0) {
@@ -377,7 +431,6 @@ function renderCart(targetEl) {
       }
     });
 
-    // Event hapus item
     tr.querySelector(".btn-hapus-cart").addEventListener("click", () => {
       cartItems.splice(index, 1);
       renderCart(targetEl);
