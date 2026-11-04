@@ -7,7 +7,52 @@
 **Dosen:** Agung Nugroho, S.Kom., M.Kom
 **Mata Kuliah:** Pemrograman Web
 **Proyek:** Aplikasi Web Pemesanan Buku Front-End (HTML, CSS, JavaScript DOM & JSON)
+**Repository GitHub:** https://github.com/AyamSerundeng/UtsWeb  
 
+---
+
+## Tautan Video Demonstrasi Aplikasi
+
+- **Link Video YouTube:** 
+
+---
+
+## Deskripsi Proyek
+
+Aplikasi **Toko Buku Pustaka** adalah platform toko buku online berbasis *front-end* tanpa *server/database* backend. Aplikasi ini dirancang untuk memenuhi penilaian UTS Pemrograman Web 1 dengan mengimplementasikan struktur HTML5 semantik, gaya tampilan CSS3 responsif, manipulasi JavaScript DOM, validasi formulir, serta penyimpanan *client-side* berbasis Array JSON dan `localStorage`.
+
+---
+
+## Fitur Utama
+1. **HTML Semantik & Valid:** Penggunaan tag `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`, serta modal bawaan `<dialog>`.
+2. **Autentikasi & Validasi Form (`index.html`):** Validasi data login pengguna, pesan peringatan (alert) saat login gagal, serta modal dialog kustom untuk fitur "Lupa Password" dan "Daftar Akun Baru".
+3. **Dashboard Interaktif (`dashboard.html`):** Salam sapaan (*greeting*) otomatis yang menyesuaikan jam lokal pengguna (Pagi, Siang, Sore, Malam) dan tombol *toggle* untuk menampilkan/menyembunyikan riwayat transaksi.
+4. **Katalog & Kelola Stok (`stok.html`):** Pengambilan data buku secara dinamis dari Array JSON, pengubahan jumlah stok terdaftar secara *real-time*, serta pendaftaran buku baru menggunakan fitur *upload* file gambar cover (`FileReader` Base64).
+5. **Pemesanan & Keranjang Belanja (`checkout.html`):** Tampilan daftar kartu buku pilihan, penambahan item ke tabel keranjang belanja, pengubahan kuantitas, perhitungan otomatis total biaya, dan pencetakan nomor Delivery Order (DO) acak murni angka.
+6. **Pelacakan Pengiriman (`tracking.html`):** Fitur pencarian nomor DO untuk melihat detail ekspedisi, tanggal kirim, alamat tujuan pemesan, dan status pengiriman berbasis *progress bar* visual.
+7. **Modularitas & Persistence:** Data tersimpan dan tersinkronisasi antarhalaman menggunakan `localStorage`.
+
+---
+
+## Struktur Folder Proyek
+
+```text
+tugas-uts-web1/
+├── index.html          # Halaman Login & Modal Dialog
+├── dashboard.html      # Menu Utama Dashboard & Riwayat Transaksi
+├── stok.html           # Informasi Stok & Katalog Buku
+├── checkout.html       # Keranjang Belanja & Formulir Pemesanan
+├── tracking.html       # Pelacakan Pengiriman (Tracking DO)
+├── README.md           # Dokumentasi & Laporan Pengujian
+├── css/
+│   └── style.css       # File Styling Utama CSS3
+├── js/
+│   ├── data.js         # Variabel JSON Dummy Data (User, Buku, Tracking)
+│   └── script.js       # Logika Interaksi & Manipulasi DOM JavaScript
+├── assets/
+│   └── logo.png        # Logo Toko Buku (opsional)
+└── img/                # Asset Gambar Cover Buku (.jpg/.png)
+```
 ---
 
 ## Pengujian Fitur Aplikasi
