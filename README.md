@@ -181,7 +181,11 @@
 
 **Hasil Pengujian di Browser:**
 
-![Screenshot 10 - Tambah ke Keranjang](screenshots/10-tambah-ke-keranjang.png)
+<img width="1370" height="838" alt="image" src="https://github.com/user-attachments/assets/669e6a0f-19a9-4211-9e50-bec1fc32d6ae" />
+
+<img width="838" height="347" alt="image" src="https://github.com/user-attachments/assets/4fe4d1a6-03c0-4ad8-8ed7-bf993a0aa8af" />
+
+
 
 ---
 
