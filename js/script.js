@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initLogout();
 });
 
-// Auto-fix jika data di LocalStorage rusak atau bernilai undefined
 function initStorage() {
   const storedKatalog = localStorage.getItem("dataKatalogBuku");
   if (!storedKatalog) {
@@ -245,7 +244,6 @@ function renderKatalogTabel(targetEl) {
 }
 
 function tambahBarisKatalogDOM(targetEl, buku) {
-  // Nilai stok diambil dengan fallback aman jika bernilai null/undefined
   const nilaiStok = (buku.stok !== undefined && buku.stok !== null && !isNaN(buku.stok)) ? buku.stok : 0;
 
   const tr = document.createElement("tr");
@@ -269,7 +267,6 @@ function tambahBarisKatalogDOM(targetEl, buku) {
   const inputStok = tr.querySelector(".input-stok-val");
   const btnUpdateStok = tr.querySelector(".btn-update-stok");
 
-  // Simpan perubahan jumlah stok
   btnUpdateStok.addEventListener("click", () => {
     const newStokVal = parseInt(inputStok.value, 10);
     if (isNaN(newStokVal) || newStokVal < 0) {
@@ -288,7 +285,6 @@ function tambahBarisKatalogDOM(targetEl, buku) {
     }
   });
 
-  // Hapus buku dari katalog
   tr.querySelector(".btn-hapus-stok").addEventListener("click", () => {
     if (confirm(`Hapus ${buku.namaBarang} dari katalog?`)) {
       let currentKatalog = getKatalogData();
@@ -322,7 +318,10 @@ function initCheckout() {
       }
 
       const nama = document.getElementById("cust-nama").value.trim();
-      const randomDO = `DO-${Math.floor(10000000 + Math.random() * 90000000)}`;
+      const alamat = document.getElementById("cust-alamat").value.trim();
+
+      // Generasi Nomor DO murni angka 8 digit (tanpa imbuhan "DO-")
+      const randomDO = `${Math.floor(10000000 + Math.random() * 90000000)}`;
       const grandTotal = cartItems.reduce((acc, item) => acc + item.harga * item.qty, 0);
       const totalFormatted = `Rp ${grandTotal.toLocaleString("id-ID")}`;
       const todayStr = new Date().toISOString().split("T")[0];
@@ -331,6 +330,7 @@ function initCheckout() {
       currentTracking[randomDO] = {
         nomorDO: randomDO,
         nama: nama,
+        alamat: alamat,
         status: "Diproses",
         ekspedisi: "JNE",
         tanggalKirim: todayStr,
@@ -462,7 +462,9 @@ function initTracking() {
         document.getElementById("track-tanggal").textContent = trackingInfo.tanggalKirim;
         document.getElementById("track-paket").textContent = trackingInfo.paket;
         document.getElementById("track-total").textContent = trackingInfo.total;
-        document.getElementById("track-alamat").textContent = "Tujuan Pemesan";
+
+        // Memuat alamat asli dari data transaksi (fallback jika data lama/dummy tanpa alamat)
+        document.getElementById("track-alamat").textContent = trackingInfo.alamat || "Tangerang Selatan / Alamat Pemesan";
 
         const badgeEl = document.getElementById("track-status-badge");
         const progressFill = document.getElementById("progress-fill");
