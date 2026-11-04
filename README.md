@@ -230,6 +230,7 @@
 
 **Hasil Pengujian di Browser:**
 
+<img width="1434" height="897" alt="image" src="https://github.com/user-attachments/assets/bf1ac9ae-e6ae-412c-99a2-299cf0f98327" />
 
 
 
