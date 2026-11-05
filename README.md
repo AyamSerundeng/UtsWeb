@@ -13,7 +13,7 @@
 
 ## Tautan Video Demonstrasi Aplikasi
 
-- **Link Video YouTube:** 
+- **Link Video YouTube:** https://youtu.be/Hw8bX6MRp54
 
 ---
 
